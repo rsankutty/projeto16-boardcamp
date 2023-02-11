@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { getCashFlow, addFlow } from '../controllers/CashFlowController.js';
 import { authValidation } from '../middleware/AuthMiddleware.js';
 import { validateSchema } from "../middleware/validadeSchema.js"
-import { flowSchema } from '../schemas/FlowSchemas.js';
+import { flowSchema } from '../models/FlowSchemas.js';
 
 const cashFlowRouter = Router();
 
