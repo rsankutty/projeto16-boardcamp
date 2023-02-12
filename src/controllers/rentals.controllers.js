@@ -100,12 +100,13 @@ export async function closeRental(req, res) {
 
 		if (delay > 0) {
 			const delayFee = delay * rental.rows[0].pricePerDay
+			console.log(rentedDays,delay,delayFee)
 			await db.query(`
 				UPDATE 
 					rentals 
 				SET 
-					"delayFee" = ${delayFee}, 
-					"returnDate" = ${returnDate}
+					"delayFee" = '${delayFee}', 
+					"returnDate" = '${returnDate.format('YYYY-MM-DD')}'
 				WHERE id = ${id}`);
 		} else {
 			await db.query(`
